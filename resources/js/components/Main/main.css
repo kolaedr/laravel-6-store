@@ -1,0 +1,18 @@
+/* Color Theme Swatches in Hex */
+/* .darkaqua-gold-charcoal-gray-1-hex { color: #478A99; }
+.darkaqua-gold-charcoal-gray-2-hex { color: #DAAD58; }
+.darkaqua-gold-charcoal-gray-3-hex { color: #4B585C; }
+.darkaqua-gold-charcoal-gray-4-hex { color: #B4B4B4; }
+.darkaqua-gold-charcoal-gray-5-hex { color: #F0F2F1; } */
+
+/* Color Theme Swatches in RGBA */
+/* .darkaqua-gold-charcoal-gray-1-rgba { color: rgba(70, 137, 153, 1); }
+.darkaqua-gold-charcoal-gray-2-rgba { color: rgba(218, 172, 87, 1); }
+.darkaqua-gold-charcoal-gray-3-rgba { color: rgba(75, 87, 91, 1); }
+.darkaqua-gold-charcoal-gray-4-rgba { color: rgba(179, 179, 179, 1); }
+.darkaqua-gold-charcoal-gray-5-rgba { color: rgba(239, 242, 240, 1); } */
+
+main{
+    width: 100%;
+    padding: 1em 3em;
+}

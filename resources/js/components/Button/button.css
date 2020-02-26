@@ -1,0 +1,28 @@
+button{
+    /* padding: .5em 1em;
+    margin: .5em;
+    border-radius: .5em;
+    box-shadow: 1px 1px 5px rgb(109, 109, 109); */
+
+    padding: .25em 1.25em;
+    margin: 0 .75em;
+    border-radius: .75em;
+    background: #F0F2F1;
+    box-shadow: 5px 5px 10px rgba(180, 180, 180, 0.6), -5px -5px 10px rgba(255, 255, 255, 1);
+}
+
+.red{
+    background: rgb(245, 95, 95);
+}
+
+.green{
+    background: #DAAD58;
+}
+
+.blue{
+    background: #478A99;
+}
+
+.light{
+    background: #F0F2F1;
+}

@@ -13,8 +13,9 @@ class AdminMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
+
         if(!\Auth::user()->isAdmin()){
             return redirect('/');
         }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\API\ProductAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('/product', 'API\ProductAPIController');
+Route::apiResource('/status', 'API\StatusAPIController');
+Route::apiResource('/category', 'API\CategoryAPIController');
+Route::apiResource('/order', 'API\OrderAPIController');
+Route::apiResource('/user', 'API\UserAPIController');
+Route::apiResource('/orderlist', 'API\OrderListAPIController');
