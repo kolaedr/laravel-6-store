@@ -22,5 +22,5 @@ Route::apiResource('/product', 'API\ProductAPIController');
 Route::apiResource('/status', 'API\StatusAPIController');
 Route::apiResource('/category', 'API\CategoryAPIController');
 Route::apiResource('/order', 'API\OrderAPIController');
-Route::apiResource('/user', 'API\UserAPIController');
+Route::apiResource('/users', 'API\UserAPIController');
 Route::apiResource('/orderlist', 'API\OrderListAPIController');

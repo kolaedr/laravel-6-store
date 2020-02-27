@@ -184,6 +184,20 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Product',
+            'url'         => 'admin/product',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 2,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Orders',
+            'url'         => 'admin/orders',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 1,
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',

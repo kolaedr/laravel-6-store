@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     You are logged in!
-                    <div id="example"></div>
+                    {{-- <div id="example"></div> --}}
 
                 </div>
             </div>

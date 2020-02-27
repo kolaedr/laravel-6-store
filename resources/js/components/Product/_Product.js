@@ -9,16 +9,17 @@ export default function Product(props) {
     // const [count, setCount] = useState(0)
 
     // describe.slice(0, 35)
-    const des = describe.split(0, 35)
+    // const des = describe.split(0, 35)
     return (
         //   <button onClick={() => setCount(count + 1)} className={styleBtnArr[typeBtn]}>{button} {count}</button>
         <div className="col-md-4" key={i} >
-            <img src={image} className="images-prod" />
+            <img src={`/${image}`} className="images-prod" />
             <h3>{name}</h3>
             <span>{price}</span>
-            <p>{describe.split(' ').slice(0, 10).join(' ')}</p>
+            <p>{describe}</p>
             <Button button='Add to cart' typeBtn='light' />
         </div>
 
     )
 };
+// <p>{describe.split(' ').slice(0, 10).join(' ')}</p>

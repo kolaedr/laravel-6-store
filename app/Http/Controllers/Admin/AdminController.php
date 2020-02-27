@@ -13,4 +13,10 @@ class AdminController extends Controller
         // dd(Auth::user()->isAdmin());
         return view('admin.dashboard');
     }
+
+    public function reactAdmin()
+    {
+        // dd(Auth::user()->isAdmin());
+        return view('admin.reactadminpanel');
+    }
 }
