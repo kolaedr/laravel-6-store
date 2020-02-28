@@ -27,6 +27,8 @@ Route::group(
     ], function(){
 
         Route::get('/', 'AdminController@index');
+        Route::get('/product', 'AdminController@getProductList');
+        Route::delete('/product/{id}', 'AdminController@destroy');
         Route::get('/react', 'AdminController@reactAdmin');
 });
 
@@ -35,3 +37,10 @@ Route::group(
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/product', 'Store\ProductController');
+Route::resource('/status', 'Store\StatusController');
+Route::resource('/category', 'Store\CategoryController');
+Route::resource('/order', 'Store\OrderController');
+Route::resource('/users', 'UserController');
+Route::resource('/orderlist', 'Store\OrderListController');

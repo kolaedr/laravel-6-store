@@ -18,6 +18,12 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('parent_id')->nullable();
+            // $table
+            //     ->unsignedBigInteger('parent_id')
+            //     ->nullable();
+            // $table->foreign('parent_id')
+            //     ->references('id')->on('products')
+            //     ->onDelete('SET NULL');
             // $table->timestamps();
         });
     }

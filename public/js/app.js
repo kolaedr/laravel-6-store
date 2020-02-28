@@ -6534,7 +6534,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "button{\n    /* padding: .5em 1em;\n    margin: .5em;\n    border-radius: .5em;\n    box-shadow: 1px 1px 5px rgb(109, 109, 109); */\n\n    padding: .25em 1.25em;\n    margin: 0 .75em;\n    border-radius: .75em;\n    background: #F0F2F1;\n    box-shadow: 5px 5px 10px rgba(180, 180, 180, 0.6), -5px -5px 10px rgba(255, 255, 255, 1);\n}\n\n.red{\n    background: rgb(245, 95, 95);\n}\n\n.green{\n    background: #DAAD58;\n}\n\n.blue{\n    background: #478A99;\n}\n\n.light{\n    background: #F0F2F1;\n}\n", ""]);
+exports.push([module.i, "/* _button{ */\n    /* padding: .5em 1em;\n    margin: .5em;\n    border-radius: .5em;\n    box-shadow: 1px 1px 5px rgb(109, 109, 109); */\n\n    /* padding: .25em 1.25em;\n    margin: 0 .75em;\n    border-radius: .75em;\n    background: #F0F2F1;\n    box-shadow: 5px 5px 10px rgba(180, 180, 180, 0.6), -5px -5px 10px rgba(255, 255, 255, 1); */\n/* } */\n\n.red{\n    background: rgb(245, 95, 95);\n}\n\n.green{\n    background: #DAAD58;\n}\n\n.blue{\n    background: #478A99;\n}\n\n.light{\n    background: #F0F2F1;\n}\n", ""]);
 
 // exports
 

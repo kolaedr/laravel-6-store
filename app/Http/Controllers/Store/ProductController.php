@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,20 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Home page ';
+        $product = Product::paginate(6);
+        // $news = DB::table('news')
+        //     ->join('categories', 'news.category_id', '=', 'categories.id')
+        //     ->select('news.*', 'categories.name as cat')
+        //     ->get();
+        // $categories = Category::all();
+        // $newsCountAll = DB::table('news')->count();
+        // $newsCount = DB::table('categories')
+        //     ->join('news', 'category_id', '=', 'categories.id')
+        //     ->groupBy('categories.id')
+        //     ->select('categories.id', DB::raw('count(1) AS count'))->get();
+        //подключается файл с папки resources/views/home/index.blade.php
+        return view('product.productlist', compact('title', 'product'));
     }
 
     /**
@@ -80,6 +94,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect('admin/product')->with('success', 'Category with id: ' . $product->id . ' DELETED!');
     }
 }
