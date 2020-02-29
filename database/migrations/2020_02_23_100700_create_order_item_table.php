@@ -18,12 +18,17 @@ class CreateOrderItemTable extends Migration
             $table
                 ->unsignedBigInteger('order_id');
                 $table->foreign('order_id')
-                    ->references('id')->on('orders');
+                    ->references('id')
+                    ->on('orders')
+                    ->onDelete('cascade');
             $table
-            ->unsignedBigInteger('product_id');
+            ->unsignedBigInteger('product_id')
+            ->nullable();
                 $table->foreign('product_id')
-                    ->references('id')->on('products');
-            $table->string('qty');
+                    ->references('id')
+                    ->on('products')
+                    ->onDelete('set null');
+            $table->unsignedTinyInteger('qty');
             $table->decimal('price', 8, 2);
             $table->timestamps();
         });

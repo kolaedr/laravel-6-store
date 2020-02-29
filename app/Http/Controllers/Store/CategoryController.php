@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Store;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::paginate(6);
+        return view('admin.categories.categories', compact('category'));
     }
 
     /**
@@ -24,7 +26,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = new Category();
+        $categories = Category::all('id', 'name')->pluck('name', 'id');
+        return view('admin.categories.create', compact('category', 'categories'));
     }
 
     /**
@@ -34,8 +38,15 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $request->validate([
+            'name' => 'required|max:100|min:3|unique:categories',
+            'parent_id' => '',
+            'slug' => 'max:100|min:3',
+            'img' => 'required',
+        ]);
+        Category::create($request->all())->save();
+        return redirect('admin\categories')->with('success', 'News with id: ' . $this->title . ' added!');
     }
 
     /**
@@ -46,7 +57,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -57,7 +68,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        $categories = Category::all('id', 'name')->pluck('name', 'id');
+        return view('admin.categories.edit', compact('category', 'categories'));
+    
     }
 
     /**
@@ -69,7 +83,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:100|min:3|unique:categories,name,'.$id,
+            'parent_id' => '',
+            'slug' => 'max:100|min:3',
+            'img' => 'required',
+        ]);
+        // Category::create($request->all())->save();
+        return redirect('admin\categories')->with('success', 'News with id: ' . $request->name . ' added!');
     }
 
     /**

@@ -14,6 +14,7 @@ $factory->define(Category::class, function (Faker $faker ) use ($fakerUS)  {
     return [
         'name' => $fakerUS->sentence($nbWords = 1, $variableNbWords = true),
         'slug' => $faker->sentence($nbWords = 1, $variableNbWords = true),
+        'img' => $faker->imageUrl($width = 32, $height = 32),
 
     ];
 });

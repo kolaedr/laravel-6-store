@@ -15,15 +15,16 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('slug');
-            $table->string('parent_id')->nullable();
+            $table->string('img', 120);
+            $table->unsignedBigInteger('parent_id')->nullable();
             // $table
             //     ->unsignedBigInteger('parent_id')
             //     ->nullable();
-            // $table->foreign('parent_id')
-            //     ->references('id')->on('products')
-            //     ->onDelete('SET NULL');
+            $table->foreign('parent_id')
+                ->references('id')->on('categories')
+                ->onDelete('SET NULL');
             // $table->timestamps();
         });
     }

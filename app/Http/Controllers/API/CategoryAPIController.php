@@ -54,7 +54,7 @@ class CategoryAPIController extends Controller
         $category = Category::findOrFail($id);
         $category->fill($request->except(['id']));
         $category->save();
-        return response()->json($category);
+        return $category;
     }
 
     /**

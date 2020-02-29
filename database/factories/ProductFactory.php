@@ -30,11 +30,11 @@ $factory->define(Product::class, function (Faker $faker) {
 
     return [
         'name' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-        'slug' => $faker->sentence($maxNbChars = 1),
+        'slug' => $faker->unique()->sentence($maxNbChars = 1),
         'price' => $faker->randomFloat($nbMaxDecimals = NULL, $min = 50, $max = 10000),
         'describe' => $faker->text($maxNbChars = 500),
         'image' => $img[array_rand($img, 1)],
-        'sku'=>$faker->randomNumber($nbDigits = NULL, $strict = false),
+        'sku'=>$faker->unique()->randomNumber($nbDigits = NULL, $strict = false),
         'favorite'=>$faker->boolean(5),
     ];
 });

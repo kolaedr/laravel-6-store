@@ -32,6 +32,15 @@ Route::group(
         Route::get('/react', 'AdminController@reactAdmin');
 });
 
+Route::group(
+    ['prefix'=>'/admin',
+    'namespace'=>'Store',
+    'middleware'=>['auth', 'admin']
+    ], function(){
+
+        Route::resource('/categories', 'CategoryController');
+});
+
 
 
 Auth::routes();
