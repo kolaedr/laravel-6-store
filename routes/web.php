@@ -28,28 +28,31 @@ Route::group(
 
         Route::get('/', 'AdminController@index');
         Route::get('/product', 'AdminController@getProductList');
-        Route::delete('/product/{id}', 'AdminController@destroy');
+        // Route::delete('/product/{id}', 'AdminController@destroy');
         Route::get('/react', 'AdminController@reactAdmin');
-});
-
-Route::group(
-    ['prefix'=>'/admin',
-    'namespace'=>'Store',
-    'middleware'=>['auth', 'admin']
-    ], function(){
-
         Route::resource('/categories', 'CategoryController');
+        Route::resource('/products', 'ProductController');
 });
+
+// Route::group(
+//     ['prefix'=>'/admin',
+//     'namespace'=>'Store',
+//     'middleware'=>['auth', 'admin']
+//     ], function(){
+
+//         Route::resource('/categories', 'CategoryController');
+// });
 
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products', 'Admin\AdminController@getProductList');
 
-Route::resource('/product', 'Store\ProductController');
-Route::resource('/status', 'Store\StatusController');
-Route::resource('/category', 'Store\CategoryController');
-Route::resource('/order', 'Store\OrderController');
+
+Route::resource('/status', 'Admin\StatusController');
+// Route::resource('/category', 'CategoryController');
+Route::resource('/order', 'Admin\OrderController');
 Route::resource('/users', 'UserController');
-Route::resource('/orderlist', 'Store\OrderListController');
+Route::resource('/orderlist', 'Admin\OrderListController');

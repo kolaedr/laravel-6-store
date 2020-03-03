@@ -26,7 +26,7 @@ class AdminController extends Controller
         // $title = 'Home page ';
         $product = Product::paginate(10);
 
-        return view('admin.product', compact('product'));
+        return view('product.productlist', compact('product'));
     }
 
     public function destroy($id)

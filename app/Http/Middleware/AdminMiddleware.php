@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Http\Controllers\Auth\VerificationController;
 
 class AdminMiddleware
 {
@@ -16,7 +17,7 @@ class AdminMiddleware
     public function handle($request, Closure $next, $guard = null)
     {
 
-        if(!\Auth::user()->isAdmin()){
+        if(! \Auth::user()->isAdmin()){
             return redirect('/');
         }
         return $next($request);

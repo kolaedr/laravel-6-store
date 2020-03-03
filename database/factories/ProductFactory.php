@@ -34,7 +34,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'price' => $faker->randomFloat($nbMaxDecimals = NULL, $min = 50, $max = 10000),
         'describe' => $faker->text($maxNbChars = 500),
         'image' => $img[array_rand($img, 1)],
-        'sku'=>$faker->unique()->randomNumber($nbDigits = NULL, $strict = false),
-        'favorite'=>$faker->boolean(5),
+        'sku'=>$faker->unique()->randomNumber($min = 5000, $max = 10000),
+        'favorite'=>$faker->boolean(),
     ];
 });

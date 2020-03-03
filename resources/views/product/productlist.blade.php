@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $title)
+{{-- @section('title', $title) --}}
 @section('content')
 <div class="container">
 
@@ -15,7 +15,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{$item->name}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Price: {{$item->price}} USD</h6>
-                <p class="card-text">{{Str::words($item->describe, 10, ' >>>')}}</p>
+                <p class="card-text">{!! Str::before($item->describe, '.') !!}</p>
               </div>
               <div class="card-footer bg-light">
                 <div class="row justify-content-around">
