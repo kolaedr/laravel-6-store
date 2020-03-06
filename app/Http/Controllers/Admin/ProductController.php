@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class ProductController extends Controller
 {
@@ -54,6 +56,9 @@ class ProductController extends Controller
         ]);
 
         Product::create($request->all())->save();
+        
+        // Storage::putFile('images', new File('/path/to/photo'), 'public');
+        // Storage::put('images', $request->image);
         // dd(Product::where('name', '=', $request->name));
         // $ProductCategory = new ProductCategory();     //в модели все столбцы таблицы записываются в свойства
         // $ProductCategory->category_id = $request->category_id;

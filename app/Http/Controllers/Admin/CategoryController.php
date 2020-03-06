@@ -89,6 +89,9 @@ class CategoryController extends Controller
             'slug' => 'max:100|min:3',
             'img' => 'required',
         ]);
+        if ($request->removeImg) {
+            $news->img = NULL;
+        }
         Category::find($id)->update($request->all());
         return redirect('admin\categories')->with('success', 'News with id: ' . $request->name . ' added!');
     }

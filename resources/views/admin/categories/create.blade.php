@@ -19,6 +19,10 @@
     {!! Form::model($category, ['url'=>'admin/categories','class'=>'col-4']) !!}
     {{-- {{Form::token()}} --}}
     @include('admin.categories._form')
+    <div class="row align-items-center">
+        {!! Form::submit('Create category', ['class'=>'btn btn-primary']) !!}
+        <a href="/admin/categories" class="ml-3">back</a>
+    </div>
     {!! Form::close() !!}
 @endsection
 

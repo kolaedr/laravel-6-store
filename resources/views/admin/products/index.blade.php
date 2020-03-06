@@ -29,7 +29,7 @@
             <td>{{$item->price}} USD</td>
             <td>{!! Str::words($item->describe, 13, ' ...') !!}</td>
             <td>{{$item->slug}}</td>
-            <td><img src="/{{$item->image}}" class="images-prod-admin" /></td>
+            <td><img src="{{$item->image}}" class="images-prod-admin" /></td>
             <td class="d-inline-flex">
                 <a href="{{route('products.edit', $item->id)}}" class="btn btn-success"><i class="fas fa-edit nav-icon"></i></a>
                 {{-- <a href="{{route('products.destroy', $item->id)}}" class="btn btn-danger"><i class="fas fa-edit nav-icon"></i></a> --}}

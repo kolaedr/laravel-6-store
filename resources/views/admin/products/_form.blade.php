@@ -27,10 +27,22 @@
             <i class="fa fa-picture-o"></i> Choose image
           </a>
         </span>
-        <input id="thumbnail" class="form-control" type="text" name="image">
+        <input id="thumbnail" class="form-control" type="text" name="image"  value="{{$product->image != '[]' ? $product->image : ''}}">
       </div>
       <img id="holder" style="margin-top:15px;max-height:100px;">
 </div>
+@if ($product->img)
+   <div class="form-group">
+        <label for="">Image</label>
+
+        <img src="{{$product->image}}" alt="" class="thumbnail admin-edit-image">
+        <a href="#" class="remove-img"> Remove</a>
+        <input type="hidden" name="removeImg">
+        @error('img')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+    </div> 
+@endif
 <div class="form-group">
     {!! Form::label('describe', 'Product describe:') !!}
     {!! Form::textarea('describe', null, ['class'=>'form-control', 'id'=>"describe-product", 'rows' => 4, 'cols' => 54, 'placeholder'=>'Describe product']) !!}
