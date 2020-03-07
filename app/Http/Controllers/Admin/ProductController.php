@@ -20,6 +20,9 @@ class ProductController extends Controller
     public function index()
     {
         $title = 'Product list';
+        // Product::where('favorite', 1)->get();
+        // Product::orderBy('created_at')->get();
+        
         $product = Product::paginate(10);
         return view('admin.products.index', compact('title', 'product'));
     }
@@ -54,16 +57,12 @@ class ProductController extends Controller
             'sku' => 'required|max:10|min:1|unique:products,sku',
             'favorite' => '',
         ]);
+        // dd($request->all());
+        $product = Product::create($request->all());
+        $product->category()->sync($request->category_id);
 
-        Product::create($request->all())->save();
-        
-        // Storage::putFile('images', new File('/path/to/photo'), 'public');
-        // Storage::put('images', $request->image);
-        // dd(Product::where('name', '=', $request->name));
-        // $ProductCategory = new ProductCategory();     //в модели все столбцы таблицы записываются в свойства
-        // $ProductCategory->category_id = $request->category_id;
-        // $ProductCategory->id = Product::find('name', $request->name)->id;
-        // $ProductCategory->save();
+        // $product->save();
+       
         return redirect('admin\products')->with('success', 'News with id: ' . $request->name . ' added!');
     }
 
@@ -87,6 +86,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+        // dd($product);
         $products = Product::all('id', 'name')->pluck('name', 'id');
         $categories = Category::all('id', 'name')->pluck('name', 'id');
         return view('admin.products.edit', compact('product', 'products', 'categories'));
@@ -103,16 +103,19 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|max:100|min:3',
-            'slug' => 'max:100|min:3',
+            'slug' => 'sometimes|max:100|min:3|unique:products,slug,'.$id,
             'price' => 'required|max:100|min:1',
             'image' => 'required',
             'describe' => 'required|max:1000|min:10',
-            'sku' => 'required|max:10|min:1|unique:products,sku,'.$id,
+            'sku' => 'sometimes|max:10|min:1|unique:products,sku,'.$id,
             'favorite' => '',
         ]);
 
-        // dd($request);
-        Product::find($id)->update($request->all());
+        // dd($request->all());
+        $product = Product::find($id);
+        $product->update($request->all());
+        $product->category()->sync($request->category_id);
+        // $product->save();
         return redirect('admin\products')->with('success', 'News with id: ' . $request->name . ' added!');
     }
 

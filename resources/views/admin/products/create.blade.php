@@ -21,7 +21,7 @@
     @include('admin.products._form')
 
     <div class="row align-items-center">
-        {!! Form::submit('Edit product', ['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Add product', ['class'=>'btn btn-primary']) !!}
         <a href="/products" class="ml-3">back</a>
     </div>
     {!! Form::close() !!}
@@ -40,6 +40,7 @@
         if (document.querySelector('#describe-product')) {
         CKEDITOR.replace( 'describe-product' );
         };
+        $('#category_id').select2();
         </script>
 
     @stop

@@ -19,7 +19,7 @@
               </div>
               <div class="card-footer bg-light">
                 <div class="row justify-content-around">
-                    <a href="/product/{{$item->id}}" class="btn btn-outline-primary  pl-4 pr-4">Show</a>
+                    <a href="/product/{{$item->slug}}" class="btn btn-outline-primary  pl-4 pr-4">Show</a>
                     <a href="/product/{{$item->id}}/add" class="btn btn-primary  pl-4 pr-4">Add to cart</a>
                     {{-- <form action="/product/{{$item->id}}" method="GET">
                         <button class="btn btn-outline-primary pl-5 pr-5" ><i class="fas fa-edit nav-icon"></i>Show</button>

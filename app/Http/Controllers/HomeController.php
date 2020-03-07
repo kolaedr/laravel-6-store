@@ -6,6 +6,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Events\ChatMessage;
 use App\Models\Comment;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -28,5 +29,12 @@ class HomeController extends Controller
     {
         
         return view('home');
+    }
+
+    public function product($slug)
+    {
+        $product = Product::where('slug', $slug)->first();
+        echo $product;
+
     }
 }

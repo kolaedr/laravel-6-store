@@ -16,8 +16,8 @@
 <div class="form-group">
     {!! Form::label('category_id', 'Parent ategory:') !!}
     {!! Form::select('category_id', $categories,
-        null,
-        ['class'=>'form-control', 'placeholder'=>'Select category']) !!}
+        $product->category,
+        ['class'=>'form-control', 'multiple'=>'multiple', 'name'=>'category_id[]']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('image', 'Product image:') !!}

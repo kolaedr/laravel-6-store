@@ -40,9 +40,16 @@
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 <script>
-$('#lfm').filemanager('image');
+    var options = {
+    filebrowserImageBrowseUrl: '/filemanager?type=Images',
+    filebrowserImageUploadUrl: '/lfilemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/filemanager?type=Files',
+    filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+  };
+    $('#lfm').filemanager('image');
     if (document.querySelector('#describe-product')) {
-    CKEDITOR.replace( 'describe-product' );
+    CKEDITOR.replace( 'describe-product', options);
     };
+    $('#category_id').select2();
     </script>
     @stop

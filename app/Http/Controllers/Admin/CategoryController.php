@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required|max:100|min:3|unique:categories',
             'parent_id' => '',
-            'slug' => 'max:100|min:3',
+            'slug' => 'max:100|min:3|unique:categories',
             'img' => 'required',
         ]);
         Category::create($request->all())->save();
@@ -86,7 +86,7 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required|max:100|min:3|unique:categories,name,'.$id,
             'parent_id' => '',
-            'slug' => 'max:100|min:3',
+            'slug' => 'sometimes|unique:categories,slug,'.$id,
             'img' => 'required',
         ]);
         if ($request->removeImg) {

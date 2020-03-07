@@ -9,12 +9,25 @@ use Faker\Generator as Faker;
 
 $fakerUS = \Faker\Factory::create("ru_RU");
 
-$factory->define(Category::class, function (Faker $faker ) use ($fakerUS)  {
-
+$factory->define(Category::class, function (Faker $faker )  {
+    $name = $faker->words(2, true);
+    
     return [
-        'name' => $fakerUS->sentence($nbWords = 1, $variableNbWords = true),
-        'slug' => $faker->sentence($nbWords = 1, $variableNbWords = true),
-        'img' => $faker->imageUrl($width = 32, $height = 32),
+        'name' => $name,
+        'slug' => \Str::slug($name, '-'),
+        'parent_id' => null,
+        // 'img' => $faker->imageUrl($width = 32, $height = 32),
+        'img' => 'nvb',
+        // 'img' => $faker->image($dir = '/images',640,480, null, false),
 
     ];
+});
+
+$factory->afterCreating(App\Category::class, function ($category, $faker) {
+    $categories = Category::all('id')
+    ->push(null)
+    ->pluck('id')
+    ->random();
+    $category->parent_id = $categories;
+    $category->save();
 });

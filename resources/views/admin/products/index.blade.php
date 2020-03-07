@@ -13,6 +13,7 @@
         <tr>
             <th>ID</th>
             <th>NAME</th>
+            <th>CATEGORIES</th>
             <th>PRICE</th>
             <th>DESCRIBE</th>
             <th>SLUG</th>
@@ -26,6 +27,7 @@
         <tr>
             <td>{{$item->id}}</td>
             <td>{{$item->name}}</td>
+            <td>{{$item->category->pluck('name')->join(', ')}}</td>
             <td>{{$item->price}} USD</td>
             <td>{!! Str::words($item->describe, 13, ' ...') !!}</td>
             <td>{{$item->slug}}</td>
@@ -54,5 +56,7 @@
 @stop
 
 @section('js')
-
+    <script>
+        $('.table').DataTable();
+    </script>
 @stop
