@@ -12,6 +12,11 @@
 
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    <link href="{{ asset('css/app_custom.css') }}" rel="stylesheet">
+    <style>
+    
+
+</style>
 @stop
 
 @section('js')

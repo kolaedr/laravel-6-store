@@ -29,10 +29,10 @@ class Product extends Model
         // return $this->hasManyThrough('App\Category', 'App\ProductCategory');
     }
 
-    public function pcategory()
-    {
-        return $this->belongsToMany('App\ProductCategory', 'products_categories', 'product_id', 'category_id');
-    }
+    // public function pcategory()
+    // {
+    //     return $this->belongsToMany('App\ProductCategory', 'products_categories', 'product_id', 'category_id');
+    // }
 
     public function setFavoriteAttribute($value)
     {

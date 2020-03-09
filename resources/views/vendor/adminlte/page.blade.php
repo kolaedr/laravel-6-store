@@ -3,6 +3,7 @@
 @section('adminlte_css')
     @stack('css')
     @yield('css')
+    <link href="{{ asset('css/app_custom.css') }}" rel="stylesheet">
 @stop
 
 @section('classes_body',
@@ -42,7 +43,7 @@
 (config('adminlte.sidebar_scrollbar_theme', 'os-theme-light') != 'os-theme-light' ? 'data-scrollbar-theme=' . config('adminlte.sidebar_scrollbar_theme')  : '') . ' ' . (config('adminlte.sidebar_scrollbar_auto_hide', 'l') != 'l' ? 'data-scrollbar-auto-hide=' . config('adminlte.sidebar_scrollbar_auto_hide')   : ''))
 
 @php( $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout') )
-@php( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', 'home') )
+@php( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', '/') )
 
 @if (config('adminlte.use_route_url', false))
     @php( $logout_url = $logout_url ? route($logout_url) : '' )

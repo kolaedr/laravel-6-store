@@ -21,13 +21,7 @@ class AdminController extends Controller
         return view('admin.reactadminpanel');
     }
 
-    public function getProductList()
-    {
-        // $title = 'Home page ';
-        $product = Product::paginate(10);
-
-        return view('product.productlist', compact('product'));
-    }
+    
 
     public function destroy($id)
     {

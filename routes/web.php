@@ -18,8 +18,11 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@productList');
 Route::get('/product/{slug}', 'HomeController@product');
+Route::get('/category/{slug}', 'HomeController@categorySingle');
+
 
 Route::group(
     ['prefix'=>'/admin',
@@ -48,8 +51,8 @@ Route::group(
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/products', 'Admin\AdminController@getProductList');
+// Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 Route::resource('/status', 'Admin\StatusController');

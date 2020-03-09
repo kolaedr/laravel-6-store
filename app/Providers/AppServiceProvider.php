@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Category;
 use App\Product;
+use View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Events\Dispatcher;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $events)
     {
+        View::share('categories', Category::all());
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
 
             $event->menu->add('PRODUCTS');

@@ -10,14 +10,18 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/solid.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app_custom.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -25,7 +29,7 @@
             <div class="header-top row  col-12">
                 <a class="col-3" href="/">StoreLara</a>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
                 {{-- <a class="navbar-brand" href="/">StoreLara</a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -33,8 +37,18 @@
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="/products">Product <span class="sr-only">(current)</span></a>
+                    <li class="nav-item dropdown active">
+                      <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-th-list fa-lg mr-2"></i>ALL PRODUCTS
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">All product categories</a>
+                      <div class="dropdown-divider"></div>
+                      @foreach ($categories as $item)
+                          <a class="dropdown-item" href="/category/{{$item->slug}}"> {{ucfirst(trans($item->name))}}</a>
+                      @endforeach
+                        
+                      </div>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#">Contact us</a>
@@ -81,6 +95,10 @@
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
+                                @if (Auth::user()->isAdmin())
+                                   <a class="dropdown-item" href="/admin">Admin panel</a> 
+                                @endif
+                                
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
@@ -98,5 +116,16 @@
             @yield('content')
         </main>
     </div>
+
+      @section('js')
+      
+      <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+      @stack('js')
+      
+      @stop
+      @yield('js')
+      <script src="{{ asset('js/app.js') }}" defer></script>
+      <script src="{{ asset('js/app-custom.js') }}" defer></script>
+
 </body>
 </html>

@@ -134,7 +134,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
 
     'logout_url' => 'logout',
 
@@ -369,7 +369,7 @@ return [
         ],
         [
             'name' => 'Pace',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',
