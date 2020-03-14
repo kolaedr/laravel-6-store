@@ -45,9 +45,10 @@ class HomeController extends Controller
     public function categorySingle($slug)
     {
         $categories = Category::all();
-        $cat = Category::where('slug', $slug)->first()->id;
-        $products = Category::find($cat)->product;
-        
+        // $cat = Category::where('slug', $slug)->first()->id;
+        // $products = Category::find($cat)->product;
+        $products = Category::where('slug', $slug)->first()->product;
+        // dd($products);
         return view('product.single-category', compact( 'categories', 'products'));
 
     }
@@ -57,7 +58,9 @@ class HomeController extends Controller
         // $title = 'Home page ';
         $product = Product::paginate(10);
         $productLike = Product::like()->get();
-        // dd($product);
+        // $products = Product::with('category')->get();
+        // dd($products->category);
+        
         return view('product.productlist', compact('product', 'productLike'));
     }
 }

@@ -57,7 +57,7 @@ class ProductController extends Controller
             'sku' => 'required|max:10|min:1|unique:products,sku',
             'favorite' => '',
         ]);
-        // dd($request->all());
+        // dd($request->category_id);
         $product = Product::create($request->all());
         $product->category()->sync($request->category_id);
 
